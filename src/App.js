@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import react from 'react';
 
 
 import reactImg from './assets/react-core-concepts.png';
@@ -53,6 +54,19 @@ function TabButton({ children, onSelect }) {
  );
 }
 
+function CountButton() {
+  const [count, setCount] = useState(0);
+
+    function handleCount(){
+      setCount(count + 1);
+    }
+
+    return (
+      <button onClick={handleCount}>
+        kliknieto {count} razy
+      </button>
+    );
+}
 
 function App() {
  const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
@@ -102,6 +116,7 @@ function App() {
          </menu>
          {selectedTopic}
        </section>
+       <CountButton />
      </main>
    </div>
  );
