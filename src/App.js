@@ -1,35 +1,52 @@
+import "./App.css";
+import baner from "./assets/baner.png";
 import { useState } from 'react';
 
+
+let nextId = 1;
+
 function App() {
-   let nextId = 0;
+
    const [fName, setFName] = useState("");
    const [lName, setLName] = useState("");
    const [users, setUsers] = useState([]);
+   const [hidden, setHidden] = useState(false);
 
-   function handleAdd(){
-      if(fName != null && lName != null) {
-         setUsers([
-            ...users,
-            {id: nextId++, firstName: fName, lastName: lName}
-         ]);
-      }
-   }
 
   return (
-    <div>
-      <form>
-         <input type='text' placeholder='Imię'
-         value={fName}
-         onChange={e => setFName(e.target.value)}
-         />
-         <input type='text' placeholder='Nazwisko'
-         value={lName}
-         onChange={e => setLName(e.target.value)}
-         />
-         <button onClick={handleAdd()}>Dodaj nowego użytkownika</button>
-      </form>
+    <>            
+    <img src={baner}></img>
+      <div className="form">
+         <div className="parent">
+            <input placeholder='Imię'
+            value={fName}
+            onChange={e => setFName(e.target.value)}
+            />
+            <input placeholder='Nazwisko'
+            value={lName}
+            onChange={e => setLName(e.target.value)}
+            />
+            <button onClick={() => {
+               if(lName != "" && fName != ""){
+                  setUsers([
+                  ...users,
+                  {id: nextId++, firstName: fName, lastName: lName}
+                  ]);
+                  setFName("");
+                  setLName("");
+                  setHidden(false);
+               }
+               else{
+               setHidden(true);
+               }
+            }}>Dodaj nowego użytkownika</button>
+            {hidden ? <span id="hide">Wszystkie pola muszą być wypełnione</span>:""}
+         </div>
+      </div>
+         
       <hr/>
-      <table>
+      <div className="table">
+         <table>
          <tr>
             <th>Id</th>
             <th>Imię</th>
@@ -38,12 +55,14 @@ function App() {
          {users.map(users => (
             <tr key={users.id}>
                <td>{users.id}</td>
-               <td>{users.fName}</td>
-               <td>{users.lName}</td>
+               <td>{users.firstName}</td>
+               <td>{users.lastName}</td>
             </tr>
          ))}
-      </table>
-    </div>
+         </table>
+      </div>
+      
+   </>
  );
 }
 
