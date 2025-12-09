@@ -15,6 +15,21 @@ function App() {
 
   return (
     <>            
+    <header>
+      <span>
+         Strona z formularzem bardzo super
+      </span>
+      <span>
+         <a href="#">
+            Formularz
+         </a>
+      </span>
+      <span>
+         <a href="https://github.com/dgorecz/react-szkola#" target="_blank">
+            Repozytorium
+         </a>
+      </span>
+    </header>
     <img src={baner}></img>
       <div className="form">
          <div className="parent">
@@ -62,6 +77,13 @@ function App() {
          </table>
       </div>
       
+      <footer>
+         Strony:
+         <ul>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://vercel.com/">Hosting Vercel</a></li>
+         </ul>
+      </footer>
    </>
  );
 }

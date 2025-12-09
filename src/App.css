@@ -4,6 +4,25 @@
   font-family: "Lato", sans-serif;
   font-size: 105%;
 }
+header{
+  background-color: #252932;
+  color: white;
+  margin-bottom: 5rem;
+  padding: 3rem;
+}
+header > span{
+  margin: 0 2rem;
+}
+a{
+  color: #0bbad1;
+  text-decoration: none;
+}
+footer{
+  background-color: #252932;
+  color: white;
+  padding: 3rem;
+  margin-top: 10%;
+}
 img{
   margin: 1rem auto;
   display: flex;
@@ -16,6 +35,9 @@ img{
   margin: 5rem;
 }
 .parent {
+  background-color: #252932;
+  border-radius: 20px;
+  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
